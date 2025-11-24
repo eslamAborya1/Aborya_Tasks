@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url("navbar.css");
+@import url("intro.css");
+@import url("overview.css");
+@import url("work.css");
+@import url("contact.css");
+body{
+background-color: lightyellow;
+font-family: 'Poppins';
+}
+html {
+    scroll-behavior: smooth;
+}

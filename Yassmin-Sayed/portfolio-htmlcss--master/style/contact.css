@@ -1,0 +1,22 @@
+.contact{
+text-align: left; 
+padding: 10px 80px;  
+display: flex;  
+justify-content: space-between;
+max-width: 900px;
+
+}
+.contact-info{
+    margin-top: 150px;
+}
+
+@media (max-width: 768px) {
+    .contact {
+        flex-direction: column; 
+        text-align: center; 
+    }
+
+    .contact img {
+        margin-bottom: 20px; 
+    }
+}
