@@ -1,0 +1,12 @@
+<div *ngIf="loading">Loading...</div>
+
+<div *ngIf="post">
+  <h2>{{ post.title }}</h2>
+  <p>{{ post.body }}</p>
+  <p><strong>id:</strong> {{ post.id }} | <strong>userId:</strong> {{ post.userId }}</p>
+
+  <div>
+    <button [routerLink]="['/posts/edit', post.id]">Edit</button>
+    <button routerLink="/posts">Back</button>
+  </div>
+</div>

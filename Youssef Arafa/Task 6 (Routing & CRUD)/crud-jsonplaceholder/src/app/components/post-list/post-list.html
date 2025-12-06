@@ -1,0 +1,17 @@
+<div>
+  <div *ngIf="loading" class="loading">Loading...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <ul *ngIf="posts.length" class="posts-list">
+    <li *ngFor="let p of posts" class="post-item">
+      <h3 (click)="goToDetail(p.id)" class="post-title">{{ p.title }}</h3>
+      <p class="post-body">{{ p.body | slice:0:120 }}{{ p.body.length > 120 ? '...' : '' }}</p>
+      <small class="post-id">id: {{ p.id }}</small>
+      <div class="post-actions">
+        <button [routerLink]="['/posts/edit', p.id]" class="btn edit-btn">Edit</button>
+        <button (click)="deletePost(p.id)" class="btn delete-btn">Delete</button>
+        <button (click)="goToDetail(p.id)" class="btn view-btn">View</button>
+      </div>
+    </li>
+  </ul>
+</div>
