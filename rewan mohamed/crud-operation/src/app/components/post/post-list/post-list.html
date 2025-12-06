@@ -1,8 +1,60 @@
-<p-fluid >
-  <span class="font-bold mb-2 block">Fluid Container</span>
-  <div class="grid md:grid-cols-3 gap-4 px-6 ">
-     
-    @for ( post of posts ; track $index) {
+<p-fluid>
+  <span class="font-bold mb-2 block">Posts Management</span>
+  
+  <!-- Add/Edit Form -->
+  <div class="px-6 mb-4">
+    <p-card>
+      <ng-template #title>
+        {{ editingPost ? 'Edit Post' : 'Add New Post' }}
+      </ng-template>
+      <form #postForm="ngForm">
+        <div class="flex flex-col gap-4">
+          <div>
+            <label for="title" class="block mb-2 font-semibold">Title</label>
+            <input 
+              pInputText 
+              id="title" 
+              name="title"
+              [(ngModel)]="currentPost.title" 
+              required 
+              class="w-full"
+              placeholder="Enter post title"
+            />
+          </div>
+          <div>
+            <label for="body" class="block mb-2 font-semibold">Body</label>
+            <textarea 
+              id="body" 
+              name="body"
+              [(ngModel)]="currentPost.body" 
+              required 
+              rows="4" 
+              class="w-full p-2 border border-gray-300 rounded"
+              placeholder="Enter post content"
+            ></textarea>
+          </div>
+          <div class="flex gap-2">
+            <p-button 
+              [label]="editingPost ? 'Update' : 'Add'" 
+              (onClick)="savePost()" 
+              [disabled]="!postForm.form.valid"
+              severity="success"
+            />
+            <p-button 
+              label="Cancel" 
+              (onClick)="cancelEdit()" 
+              severity="secondary"
+              *ngIf="editingPost"
+            />
+          </div>
+        </div>
+      </form>
+    </p-card>
+  </div>
+
+  <!-- Posts List -->
+  <div class="grid md:grid-cols-3 gap-4 px-6">
+    @for (post of posts; track post.id) {
       <p-card [style]="{ width: '100%', overflow: 'hidden' }">
         <ng-template #header>
           <img
@@ -16,12 +68,24 @@
           {{ post.body }}
         </p>
         <ng-template #footer>
-          <div class="flex gap-4 mt-1">
-            <p-button label="Delete" (onClick)="deletePost(post.id)" class="w-full " severity="danger" styleClass="w-full" />
+          <div class="flex gap-2 mt-1">
+            <p-button 
+              label="Edit" 
+              (onClick)="editPost(post)" 
+              class="w-full" 
+              severity="info" 
+              styleClass="w-full" 
+            />
+            <p-button 
+              label="Delete" 
+              (onClick)="deletePost( post.id )" 
+              class="w-full" 
+              severity="danger" 
+              styleClass="w-full" 
+            />
           </div>
         </ng-template>
       </p-card>
     }
-    
   </div>
 </p-fluid>

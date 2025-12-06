@@ -12,6 +12,7 @@ export const appConfig: ApplicationConfig = {
             theme: {
                 preset: Aura
             }
-        })
+        }),
+        
   ]
 };
