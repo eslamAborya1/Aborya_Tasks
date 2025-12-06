@@ -46,34 +46,40 @@ export class PostList {
       .subscribe({
         next: (data) => {
           this.posts = data;
-          console.log('Posts loaded:', data);
+        
         },
         error: (e) => console.error('Error loading posts:', e)
       });
   }
 
-  savePost(): void {
-    if (this.editingPost && this.currentPost.id !== undefined) {
+   savePost(): void {
+    if (this.editingPost && this.currentPost.id) {
       // Update existing post
-      const postId = this.currentPost.id;
-     
-      this.postService.update(postId, this.currentPost)
+      this.postService.update(this.currentPost.id, this.currentPost)
         .subscribe({
           next: (response) => {
-            console.log('Post updated successfully', response);
-            this.retrievePosts();
-            setTimeout(() => this.resetForm(), 1);
+            const index = this.posts?.findIndex(p => p.id === this.currentPost.id);
+            if (index !== undefined && index !== -1 && this.posts) {
+              this.posts[index] = { ...this.currentPost };
+            }
+             alert('Post edit successfully');
+            this.resetForm();
           },
           error: (e) => console.error('Error updating post', e)
-        }); 
+        });
     } else {
       // Create new post
       this.postService.create(this.currentPost)
         .subscribe({
           next: (response) => {
-            console.log('Post created successfully', response);
-            this.retrievePosts();
-            setTimeout(() => this.resetForm(), 0);
+            if (this.posts) {
+              this.posts.push(response);
+            } else {
+              this.posts = [response];
+            }
+         //   console.log('Post created successfully', response);
+           alert('Post created successfully');
+            this.resetForm();
           },
           error: (e) => console.error('Error creating post', e)
         });
