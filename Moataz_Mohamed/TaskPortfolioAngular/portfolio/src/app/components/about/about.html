@@ -1,0 +1,32 @@
+<section id="about" class="bg-light py-5">
+  <div class="container py-5">
+    <div class="section-title text-center mb-5">
+      <h2 class="display-5 fw-bold text-primary-dark position-relative pb-3">About Me</h2>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <h3 class="fw-bold mb-4 text-primary-dark">Crafting Digital Solutions with Java</h3>
+        <p class="mb-3">I'm a passionate full stack developer with 5+ years of experience specializing in Java-based web applications. My expertise spans from backend development with Spring Framework to frontend development with modern JavaScript frameworks.</p>
+        <p class="mb-3">I thrive on solving complex problems and building efficient, maintainable code that delivers exceptional user experiences. My approach combines technical excellence with business understanding to create solutions that drive real value.</p>
+        <p class="mb-4">When I'm not coding, I enjoy contributing to open-source projects, learning new technologies, and sharing knowledge through technical blogs and community events.</p>
+        <div class="mt-4">
+          <a href="#contact" class="btn btn-blue px-4 py-2 me-3 fw-semibold">Hire Me</a>
+          <a href="#" class="btn btn-outline-blue px-4 py-2 fw-semibold">Download CV</a>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12 mt-4 mt-lg-0">
+        <div class="row g-4">
+          <div class="col-md-6" *ngFor="let skill of skills">
+            <div class="skill-card h-100 bg-white rounded-3 p-4 shadow-sm">
+              <div class="skill-icon text-center mb-3">
+                <i [class]="skill.icon + ' text-blue fs-1'"></i>
+              </div>
+              <h4 class="fw-bold mb-3">{{skill.title}}</h4>
+              <p class="mb-0">{{skill.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

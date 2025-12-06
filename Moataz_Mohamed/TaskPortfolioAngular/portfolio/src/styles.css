@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+/* Color Variables & Fonts */
+:root {
+    --primary-dark: #2c3e50;
+    --blue: #3498db;
+    --accent: #e74c3c;
+    --light: #ecf0f1;
+    --dark: #1a252f;
+    --success: #27ae60;
+    --blue-light: rgba(52, 152, 219, 0.1);
+}
+
+.font-poppins { font-family: 'Poppins', sans-serif; }
+.mono-font { font-family: 'Roboto Mono', monospace; }
+
+/* Color Utilities */
+.text-primary-dark { color: var(--primary-dark) !important; }
+.text-blue { color: var(--blue) !important; }
+.bg-primary-dark { background-color: var(--primary-dark) !important; }
+.bg-blue { background-color: var(--blue) !important; }
+.bg-blue-light { background-color: var(--blue-light) !important; }
+.bg-dark { background-color: var(--dark) !important; }
+.btn-blue { 
+    background-color: var(--blue) !important; 
+    border-color: var(--blue) !important;
+    color: white !important;
+}
+.btn-outline-blue { 
+    border-color: var(--blue) !important; 
+    color: var(--blue) !important;
+}
+.btn-outline-blue:hover { 
+    background-color: var(--blue) !important; 
+    color: white !important;
+}

@@ -1,0 +1,34 @@
+<section id="skills" class="py-5">
+  <div class="container py-5">
+    <div class="section-title text-center mb-5">
+      <h2 class="display-5 fw-bold text-primary-dark position-relative pb-3">Technical Skills</h2>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-12 mb-5 mb-lg-0" *ngFor="let backend of backendSkills">
+        <h4 class="fw-bold mb-4 text-primary-dark">{{backend.category}}</h4>
+        <div class="skill-item mb-4" *ngFor="let skill of backend.skills">
+          <div class="d-flex justify-content-between mb-1">
+            <span>{{skill.name}}</span>
+            <span>{{skill.percent}}%</span>
+          </div>
+          <div class="progress" style="height: 10px;">
+            <div class="progress-bar" [attr.data-width]="skill.percent" style="width:0%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-12" *ngFor="let frontend of frontendSkills">
+        <h4 class="fw-bold mb-4 text-primary-dark">{{frontend.category}}</h4>
+        <div class="skill-item mb-4" *ngFor="let skill of frontend.skills">
+          <div class="d-flex justify-content-between mb-1">
+            <span>{{skill.name}}</span>
+            <span>{{skill.percent}}%</span>
+          </div>
+          <div class="progress" style="height: 10px;">
+            <div class="progress-bar" [attr.data-width]="skill.percent" style="width:0%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

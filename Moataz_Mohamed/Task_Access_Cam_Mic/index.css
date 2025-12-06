@@ -175,7 +175,7 @@
         }
       .container img {
     display: block;
-    margin: 0 auto; /* centers horizontally and adds vertical spacing */
-    max-width: 100%;   /* optional: ensures it doesn't overflow container */
-    height: auto;      /* maintains aspect ratio */
+    margin: 0 auto; 
+    max-width: 100%;   
+    height: auto;     
 }

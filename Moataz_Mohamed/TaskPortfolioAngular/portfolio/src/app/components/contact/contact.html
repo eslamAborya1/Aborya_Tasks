@@ -1,0 +1,52 @@
+<section id="contact" class="py-5">
+  <div class="container py-5">
+    <div class="section-title text-center mb-5">
+      <h2 class="display-5 fw-bold text-primary-dark position-relative pb-3">Contact Me</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-12">
+        <div class="contact-info bg-primary-dark text-white rounded-3 p-4 h-100">
+          <h3 class="fw-bold mb-4">Get In Touch</h3>
+          <p class="mb-5">I'm currently open to new opportunities and interesting projects. Feel free to reach out!</p>
+          <div class="d-flex align-items-center mb-4">
+            <i class="fas fa-map-marker-alt text-blue fs-5 me-3"></i>
+            <div><h5 class="fw-bold">Location</h5><p class="mb-0">Cairo, Egypt</p></div>
+          </div>
+          <div class="d-flex align-items-center mb-4">
+            <i class="fas fa-envelope text-blue fs-5 me-3"></i>
+            <div><h5 class="fw-bold">Email</h5><p class="mb-0">moatazmohamed176@gmail.com</p></div>
+          </div>
+          <div class="d-flex align-items-center mb-4">
+            <i class="fas fa-phone text-blue fs-5 me-3"></i>
+            <div><h5 class="fw-bold">Phone</h5><p class="mb-0">+20 114 870 9365</p></div>
+          </div>
+          <div class="social-icons mt-5">
+            <a href="https://github.com/MooatazMohamed" target="_blank" class="d-inline-block rounded-circle text-center me-3 social-icon"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/moataz-mohamed-165080223" target="_blank" class="d-inline-block rounded-circle text-center me-3 social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="d-inline-block rounded-circle text-center me-3 social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="d-inline-block rounded-circle text-center social-icon"><i class="fab fa-stack-overflow"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-12">
+        <form (ngSubmit)="sendMessage()" #contactForm="ngForm">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <input type="text" class="form-control form-control-lg" placeholder="Your Name" required [(ngModel)]="contact.name" name="name">
+            </div>
+            <div class="col-md-6 mb-3">
+              <input type="email" class="form-control form-control-lg" placeholder="Your Email" required [(ngModel)]="contact.email" name="email">
+            </div>
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control form-control-lg" placeholder="Subject" required [(ngModel)]="contact.subject" name="subject">
+          </div>
+          <div class="mb-3">
+            <textarea class="form-control form-control-lg" rows="6" placeholder="Your Message" required [(ngModel)]="contact.message" name="message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-blue btn-lg px-5 py-3 fw-semibold">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

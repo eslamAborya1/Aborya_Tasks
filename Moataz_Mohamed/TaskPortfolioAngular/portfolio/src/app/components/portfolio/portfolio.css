@@ -1,0 +1,4 @@
+.portfolio-item { transition: all 0.3s ease; }
+.portfolio-item:hover .portfolio-overlay { opacity: 1 !important; }
+.portfolio-item:hover .portfolio-img { transform: scale(1.1); }
+.portfolio-overlay { opacity: 0; background-color: rgba(44, 62, 80, 0.9); transition: all 0.3s ease; }

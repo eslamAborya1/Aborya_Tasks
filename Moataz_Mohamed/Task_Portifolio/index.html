@@ -1,65 +1,350 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portifolio</title>
+    <title>Java Full Stack Developer Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <div class="logo">Moataz</div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Skills</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="hero-full-height">
-                        <div class="hero-intro-side">
-                <h2>Hello, I'm Moataz!</h2>
-                <h1>A Full-Stack Developer</h1>
-                <p>
-                    Passionate about crafting dynamic and user-friendly web applications. 
-                    With a strong background in both front-end and back-end technologies, 
-                    I transform ideas into seamless digital experiences.
-                </p>
-                <a href="#portfolio" class="btn-primary">View My Work</a>
-                <a href="#contact" class="btn-secondary">Get in Touch</a>
-            </div>
-            <div class="hero-image-side">
-                <img src="your-photo.jpg" alt="Moataz Profile Picture">
-            </div>
-
-        </section>
-
-        <section class="content-layout">
-            <div class="main-article">
-                <h3>About Me</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            
-            <aside class="sidebar-box">
-                <h4>Skills & Expertise</h4>
-                <ul>
-                    <li>Front-End: HTML, CSS, JavaScript, Bootstrap , JQuery , Angular</li>
-                    <li>Back-End: SpringBoot , Node.js, PHP</li>
-                    <li>Databases: SQL, MongoDB</li>
-                    <li>Tools: Git, GitHub , Docker</li>
+<body class="font-poppins">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary-dark fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand fs-2 fw-bold" href="#"><span class="text-blue">Java</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-2">
+                        <a class="nav-link fw-medium" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link fw-medium" href="#about">About</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link fw-medium" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link fw-medium" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link fw-medium" href="#contact">Contact</a>
+                    </li>
                 </ul>
-            </aside>
-        </section>
-    </main>
+            </div>
+        </div>
+    </nav>
 
-    <footer>
-        <p>&copy; 2026 Moataz. All rights reserved.</p>
+    <section id="home" class="hero d-flex align-items-center min-vh-100 pt-5 mt-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-md-12">
+                    <div class="hero-content text-white">
+                        <h1 class="display-4 fw-bold mb-4">Hi, I'm <span class="text-blue position-relative highlight">Moataz Mohamed</span></h1>
+                        
+                        <div class="typewriter-container mb-4">
+                            <h2 class="typewriter mono-font fw-bold fs-1">
+                                Java <span id="full-stack-text">Full Stack</span> Developer
+                            </h2>
+                        </div>
+                        
+                        <div class="sliding-text-container mb-3">
+                            <div class="sliding-text mono-font fs-3 fw-bold" id="sliding-text">Building robust web applications</div>
+                        </div>
+                        <p class="lead mt-4 mb-4">I build robust, scalable web applications using Java, Spring Boot, and modern front-end technologies. With expertise across the full stack, I deliver end-to-end solutions that drive business success.</p>
+                        <div class="mt-5">
+                            <a href="#portfolio" class="btn btn-blue btn-lg px-4 py-3 me-3 fw-semibold">View My Work</a>
+                            <a href="#contact" class="btn btn-outline-light btn-lg px-4 py-3 fw-semibold">Contact Me</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 text-center mt-5 mt-lg-0">
+                    <div class="hero-image">
+                        <div class="rounded-circle bg-blue-light d-inline-flex align-items-center justify-content-center" style="width: 300px; height: 300px; border: 5px solid var(--blue); overflow: hidden;">
+                            <i class="fas fa-laptop-code text-light" style="font-size: 150px;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="bg-light py-5">
+        <div class="container py-5">
+            <div class="section-title text-center mb-5">
+                <h2 class="display-5 fw-bold text-primary-dark position-relative pb-3">About Me</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <h3 class="fw-bold mb-4 text-primary-dark">Crafting Digital Solutions with Java</h3>
+                    <p class="mb-3">I'm a passionate full stack developer with 3+ years of experience specializing in Java-based web applications. My expertise spans from backend development with Spring Framework to frontend development with modern JavaScript frameworks.</p>
+                    <p class="mb-3">I thrive on solving complex problems and building efficient, maintainable code that delivers exceptional user experiences. My approach combines technical excellence with business understanding to create solutions that drive real value.</p>
+                    <p class="mb-4">When I'm not coding, I enjoy contributing to open-source projects, learning new technologies, and sharing knowledge through technical blogs and community events.</p>
+                    <div class="mt-4">
+                        <a href="#contact" class="btn btn-blue px-4 py-2 me-3 fw-semibold">Hire Me</a>
+                        <a href="#" class="btn btn-outline-blue px-4 py-2 fw-semibold">Download CV</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 mt-4 mt-lg-0">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="skill-card h-100 bg-white rounded-3 p-4 shadow-sm">
+                                <div class="skill-icon text-center mb-3">
+                                    <i class="fas fa-server text-blue fs-1"></i>
+                                </div>
+                                <h4 class="fw-bold mb-3">Backend Development</h4>
+                                <p class="mb-0">Java, Spring Boot, Hibernate, REST APIs, Microservices, PostgreSQL, MySQL</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="skill-card h-100 bg-white rounded-3 p-4 shadow-sm">
+                                <div class="skill-icon text-center mb-3">
+                                    <i class="fas fa-desktop text-blue fs-1"></i>
+                                </div>
+                                <h4 class="fw-bold mb-3">Frontend Development</h4>
+                                <p class="mb-0">HTML5, CSS3, JavaScript, Angular, Bootstrap, Thymeleaf, Responsive Design</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="skill-card h-100 bg-white rounded-3 p-4 shadow-sm">
+                                <div class="skill-icon text-center mb-3">
+                                    <i class="fas fa-tools text-blue fs-1"></i>
+                                </div>
+                                <h4 class="fw-bold mb-3">DevOps & Tools</h4>
+                                <p class="mb-0">Docker, Jenkins, Git, Maven, AWS, Linux, JUnit, Mockito, IntelliJ IDEA</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="skill-card h-100 bg-white rounded-3 p-4 shadow-sm">
+                                <div class="skill-icon text-center mb-3">
+                                    <i class="fas fa-chart-line text-blue fs-1"></i>
+                                </div>
+                                <h4 class="fw-bold mb-3">Methodologies</h4>
+                                <p class="mb-0">Agile/Scrum, TDD, CI/CD, Clean Architecture, Design Patterns, Code Reviews</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-5">
+        <div class="container py-5">
+            <div class="section-title text-center mb-5">
+                <h2 class="display-5 fw-bold text-primary-dark position-relative pb-3">Technical Skills</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mb-5 mb-lg-0">
+                    <h4 class="fw-bold mb-4 text-primary-dark">Backend Technologies</h4>
+                    <div class="skill-item mb-4">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>Java & Spring Boot</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress" style="height: 10px;">
+                            <div class="progress-bar bg-blue" data-width="95" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item mb-4">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>RESTful APIs</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress" style="height: 10px;">
+                            <div class="progress-bar bg-blue" data-width="90" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item mb-4">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>Database Design & SQL</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="progress" style="height: 10px;">
+                            <div class="progress-bar bg-blue" data-width="88" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item mb-4">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>Microservices Architecture</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress" style="height: 10px;">
+                            <div class="progress-bar bg-blue" data-width="85" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <h4 class="fw-bold mb-4 text-primary-dark">Frontend & Other Skills</h4>
+                    <div class="skill-item mb-4">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>HTML5, CSS3, JavaScript</span>
+                            <span>96%</span>
+                        </div>
+                        <div class="progress" style="height: 10px;">
+                            <div class="progress-bar bg-blue" data-width="92" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item mb-4">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>Angular & Bootstrap</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="progress" style="height: 10px;">
+                            <div class="progress-bar bg-blue" data-width="92" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item mb-4">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>Docker & DevOps</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress" style="height: 10px;">
+                            <div class="progress-bar bg-blue" data-width="80" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item mb-4">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>AWS & Cloud Services</span>
+                            <span>78%</span>
+                        </div>
+                        <div class="progress" style="height: 10px;">
+                            <div class="progress-bar bg-blue" data-width="78" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="portfolio" class="bg-light py-5">
+        <div class="container py-5">
+            <div class="section-title text-center mb-5">
+                <h2 class="display-5 fw-bold text-primary-dark position-relative pb-3">My Portfolio</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-item position-relative overflow-hidden rounded-3 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="E-Commerce Platform" class="portfolio-img w-100">
+                        <div class="portfolio-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4">
+                            <h4 class="fw-bold text-white mb-3">E-Commerce Platform</h4>
+                            <p class="text-white text-center mb-3">Full-stack e-commerce solution with Angular frontend</p>
+                            <p class="mono-font text-blue mb-3">Angular , Json File</p>
+                            <a href="https://github.com/MooatazMohamed/e-commerce_live" class="btn btn-outline-light rounded-pill px-4 py-2 mt-3" target="_blank">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-item position-relative overflow-hidden rounded-3 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Banking System" class="portfolio-img w-100">
+                        <div class="portfolio-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4">
+                            <h4 class="fw-bold text-white mb-3">Library Management System</h4>
+                            <p class="text-white text-center mb-3">Library Management System for reading and buying books</p>
+                            <p class="mono-font text-blue mb-3">Angular , TypeScript , Json File , Angular Component , Bootstrap</p>
+                            <a href="https://github.com/MooatazMohamed/Library-" target="_blank" class="btn btn-outline-light rounded-pill px-4 py-2 mt-3">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-item position-relative overflow-hidden rounded-3 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Analytics Dashboard" class="portfolio-img w-100">
+                        <div class="portfolio-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4">
+                            <h4 class="fw-bold text-white mb-3">Netflix</h4>
+                            <p class="text-white text-center mb-3">Full web site for watching all movies</p>
+                            <p class="mono-font text-blue mb-3">Angular , TypeScript Angular Component , Bootstrap</p>
+                            <a href="https://github.com/MooatazMohamed/Netflix" target="_blank" class="btn btn-outline-light rounded-pill px-4 py-2 mt-3">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5">
+        <div class="container py-5">
+            <div class="section-title text-center mb-5">
+                <h2 class="display-5 fw-bold text-primary-dark position-relative pb-3">Contact Me</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-12">
+                    <div class="contact-info bg-primary-dark text-white rounded-3 p-4 h-100">
+                        <h3 class="fw-bold mb-4">Get In Touch</h3>
+                        <p class="mb-5">I'm currently open to new opportunities and interesting projects. Feel free to reach out if you'd like to collaborate or just say hello!</p>
+                        
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="fas fa-map-marker-alt text-blue fs-5 me-3"></i>
+                            <div>
+                                <h5 class="fw-bold">Location</h5>
+                                <p class="mb-0">Cairo, Egypt</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="fas fa-envelope text-blue fs-5 me-3"></i>
+                            <div>
+                                <h5 class="fw-bold">Email</h5>
+                                <p class="mb-0">moatazmohamed176@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="fas fa-phone text-blue fs-5 me-3"></i>
+                            <div>
+                                <h5 class="fw-bold">Phone</h5>
+                                <p class="mb-0">+20 114 870 9365</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-icons mt-5">
+                            <a href="https://github.com/MooatazMohamed" class="d-inline-block rounded-circle text-center me-3 social-icon" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/moataz-mohamed-165080223" target="_blank" class="d-inline-block rounded-circle text-center me-3 social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="d-inline-block rounded-circle text-center me-3 social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="d-inline-block rounded-circle text-center social-icon"><i class="fab fa-stack-overflow"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-12">
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control form-control-lg" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="email" class="form-control form-control-lg" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control form-control-lg" placeholder="Subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control form-control-lg" rows="6" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-blue btn-lg px-5 py-3 fw-semibold">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-12 mb-3 mb-lg-0">
+                    <h3 class="fw-bold mb-3"><span class="text-blue">Java</span></h3>
+                    <p class="mb-0">Java Full Stack Developer specializing in building robust, scalable web applications with modern technologies.</p>
+                </div>
+                <div class="col-lg-6 col-md-12 text-lg-end">
+                    <p class="mb-2">&copy; 2025 Moataz Mohamed. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
