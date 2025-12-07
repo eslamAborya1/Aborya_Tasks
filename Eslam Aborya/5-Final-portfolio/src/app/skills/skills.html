@@ -1,0 +1,15 @@
+<section class="w-full py-20 bg-white px-10 md:px-20 mt-20">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-3">My Skills</h2>
+    <hr class="w-16 h-1 bg-blue-600 border-none mx-auto mb-8">
+
+    <div class="grid grid-cols-4 gap-8">
+      @for (skill of skills; track skill.name) {
+        <div class="bg-blue-50 p-7 text-center rounded-xl hover:shadow-lg hover:translate-y-[-5px] transition-all">
+          <i [class]="skill.icon + ' text-4xl text-blue-600 mb-3 block'"></i>
+          <p class="font-semibold">{{ skill.name }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
