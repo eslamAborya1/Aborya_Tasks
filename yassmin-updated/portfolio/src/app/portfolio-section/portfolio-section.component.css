@@ -1,0 +1,7 @@
+.portfolio{
+    text-shadow: 2px 2px 4px gray;
+}
+
+.portfolio-card-odd{
+    background-color: rgb(148, 122, 92);
+}

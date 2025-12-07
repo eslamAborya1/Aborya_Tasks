@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="تطبيق لإدارة المنشورات باستخدام API" />
+    <title>مدير المنشورات | Posts Manager</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="main.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="app-header">
+        <h1 class="main-title">📝 مدير المنشورات الذكي</h1>
+        <p class="subtitle">قم بإدارة منشوراتك بسهولة</p>
+      </header>
+
+      <section class="action-panel">
+        <button class="btn btn-primary" id="btn-load-all">
+          <span>📋</span> عرض كل المنشورات
+        </button>
+        <button class="btn btn-info" id="btn-load-one">
+          <span>📄</span> عرض منشور واحد
+        </button>
+        <button class="btn btn-success" id="btn-add">
+          <span>➕</span> إضافة منشور
+        </button>
+        <button class="btn btn-warning" id="btn-edit">
+          <span>✏️</span> تعديل منشور
+        </button>
+        <button class="btn btn-danger" id="btn-remove">
+          <span>🗑️</span> حذف منشور
+        </button>
+      </section>
+
+      <main id="content-display" class="content-area">
+        <div class="welcome-msg">
+          <p>👋 اختر أحد الخيارات أعلاه للبدء</p>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

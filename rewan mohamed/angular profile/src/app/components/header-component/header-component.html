@@ -1,0 +1,21 @@
+ <header>
+      <div class="header">
+        <div class="logo">
+          <a routerLink="/"><h1 >Rewan Mohamed</h1></a>
+        </div>
+
+        <div class="burger-btn" [class.active]="menuActive" (click)="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <nav class="nav" [class.active]="menuActive" id="navMenu">
+          <ul class="menu">
+            <li routerLink="/about" routerLinkActive="active" (click)="toggleMenu()">About</li>
+            <li routerLink="/skills" routerLinkActive="active" (click)="toggleMenu()">Skills</li>
+            <li routerLink="/projects" routerLinkActive="active" (click)="toggleMenu()">Projects</li>
+          </ul>
+        </nav>
+      </div>
+    </header>

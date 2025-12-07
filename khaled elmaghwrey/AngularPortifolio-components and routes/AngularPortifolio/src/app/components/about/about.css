@@ -1,0 +1,56 @@
+section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #667eea;
+}
+.about-content {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 250px;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.about-text {
+  flex: 2;
+  min-width: 300px;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+@keyframes fillBar {
+  from {
+    width: 0;
+  }
+}
+
+/* ----------- Responsive Mobile ----------- */
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2rem;
+  }
+
+  .about-content {
+    flex-direction: column;
+  }
+}

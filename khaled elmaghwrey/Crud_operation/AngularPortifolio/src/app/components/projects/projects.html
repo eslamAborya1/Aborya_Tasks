@@ -1,0 +1,34 @@
+<h2 class="page-title">My Projects</h2>
+
+<button class="add-project-btn" (click)="toggleAddForm()">
+  + Add Project
+</button>
+
+<div *ngIf="showAddForm" class="form-overlay">
+  <div class="form-container">
+    <h3>Add New Project</h3>
+
+    <input type="text" placeholder="Project Title" [(ngModel)]="newProject.title" />
+    <input type="text" placeholder="Icon (emoji or URL)" [(ngModel)]="newProject.icon" />
+    <textarea placeholder="Description" rows="3" [(ngModel)]="newProject.description"></textarea>
+
+    <button class="btn-save" (click)="saveNewProject()">Save</button>
+    <button class="btn-cancel" (click)="toggleAddForm()">Cancel</button>
+  </div>
+</div>
+
+
+<div class="projects-grid">
+  <div class="project-card" *ngFor="let p of projects">
+    <div class="project-image">{{ p.icon }}</div>
+    <div class="project-content">
+      <h3>{{ p.title }}</h3>
+      <p>{{ p.description }}</p>
+    </div>
+
+    <div class="card-actions">
+      <button class="action-btn btn-edit" (click)="editProject(p)">Edit</button>
+      <button class="action-btn btn-delete" (click)="deleteProject(p.id)">Delete</button>
+    </div>
+  </div>
+</div>

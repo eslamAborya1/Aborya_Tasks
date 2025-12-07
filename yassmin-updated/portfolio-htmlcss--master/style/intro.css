@@ -1,0 +1,90 @@
+.intro{
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 52px 80px;
+height: 80vh;
+}
+
+.data p{
+    color: #03045e;
+}
+.data h1{
+    
+    color: #03045e;
+    font-size: 48px;
+    font-weight: bold;
+    max-width: 50%;
+}
+.cv-button{
+    text-decoration: none;
+    color: rgb(70, 15, 15);
+    border: rgb(70, 15, 15) solid 2px;
+    padding: 10px;
+    margin-top: 15px;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out;
+}
+.cv-button:hover {
+    background-color: #a0acb1;
+}
+
+.image {
+    position: relative;
+    display: inline-block;
+    left: -400px;
+    top:-50px;
+}
+
+.profile{
+    display: block;
+    width: 200px; 
+    height: 200px; 
+    border-radius: 50%; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    margin: 0 auto;
+}
+.circle {
+    position: absolute;
+    width: 220px; 
+    height: 220px;
+    top: -10px;
+    left: -10px;
+    z-index: -1; 
+}
+
+.lines {
+    position: absolute;
+    width: 40px;
+    height: auto;
+    bottom: 10px;
+    left: -20px;
+}
+
+.sign {
+    position: absolute;
+    width: 30px;
+    height: auto;
+    top: -15px;
+    right: -15px;
+}
+
+@media (max-width: 768px) {
+    .intro {
+        flex-direction: column-reverse; 
+        text-align: center;
+        padding: 20px;
+    }
+
+    .data h1 {
+        font-size: 32px; 
+        max-width: 100%;
+    }
+
+    .cv-button {
+        width: 100%; 
+        padding: 12px;
+    }
+
+}
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CRUD with XMLHttpRequest</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, textarea { width: 100%; padding: 10px; margin: 10px 0; }
+    button { padding: 10px 15px; margin-right: 10px; cursor: pointer; }
+    #output { margin-top: 20px; padding: 10px; background: #f3f3f3; }
+  </style>
+</head>
+<body>
+
+  <h2>CRUD Test – JSONPlaceholder</h2>
+
+  <input type="number" id="postId" placeholder="Enter Post ID (For Read / Update / Delete)">
+  
+  <input type="text" id="title" placeholder="Enter Title">
+  
+  <textarea id="body" placeholder="Enter Body"></textarea>
+
+  <br>
+
+  <button onclick="createPost()">Create</button>
+  <button onclick="readPost()">Read</button>
+  <button onclick="updatePost()">Update</button>
+  <button onclick="deletePost()">Delete</button>
+
+  <div id="output"></div>
+
+  <script>
+    function showResult(data) {
+      document.getElementById("output").innerText = JSON.stringify(data, null, 2);
+    }
+
+    function createPost() {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "https://jsonplaceholder.typicode.com/posts");
+      xhr.setRequestHeader("Content-Type", "application/json");
+
+      xhr.onload = () => showResult(JSON.parse(xhr.responseText));
+
+      xhr.send(JSON.stringify({
+        title: document.getElementById("title").value,
+        body: document.getElementById("body").value,
+        userId: 1
+      }));
+    }
+
+    function readPost() {
+      const id = document.getElementById("postId").value;
+      if (!id) return alert("Enter Post ID");
+
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", `https://jsonplaceholder.typicode.com/posts/${id}`);
+      xhr.responseType = "json";
+
+      xhr.onload = () => showResult(xhr.response);
+
+      xhr.send();
+    }
+
+    function updatePost() {
+      const id = document.getElementById("postId").value;
+      if (!id) return alert("Enter Post ID");
+
+      const xhr = new XMLHttpRequest();
+      xhr.open("PUT", `https://jsonplaceholder.typicode.com/posts/${id}`);
+      xhr.setRequestHeader("Content-Type", "application/json");
+
+      xhr.onload = () => showResult(JSON.parse(xhr.responseText));
+
+      xhr.send(JSON.stringify({
+        id: id,
+        title: document.getElementById("title").value,
+        body: document.getElementById("body").value,
+        userId: 1
+      }));
+    }
+
+    function deletePost() {
+      const id = document.getElementById("postId").value;
+      if (!id) return alert("Enter Post ID");
+
+      const xhr = new XMLHttpRequest();
+      xhr.open("DELETE", `https://jsonplaceholder.typicode.com/posts/${id}`);
+
+      xhr.onload = () => showResult({ status: xhr.status, message: "Deleted" });
+
+      xhr.send();
+    }
+  </script>
+
+</body>
+</html>

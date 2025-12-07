@@ -1,0 +1,108 @@
+<div class="container mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+  <div class="lg:col-span-1">
+    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-600 sticky top-24">
+      <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+        @if (productObj.id) {
+          <span class="text-yellow-600">Edit ✏️</span>
+        } @else {
+          <span class="text-blue-600">Add ➕</span>
+        }
+      </h2>
+
+      <div class="space-y-4">
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Title</label>
+          <input [(ngModel)]="productObj.title" type="text" placeholder="title..."
+                 class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Price</label>
+            <input [(ngModel)]="productObj.price" type="number" placeholder="0.00"
+                   class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+            <input [(ngModel)]="productObj.category" type="text" placeholder="category"
+                   class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Image</label>
+          <input [(ngModel)]="productObj.image" type="text" placeholder="http://..."
+                 class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none text-xs">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+          <textarea [(ngModel)]="productObj.description" rows="3" placeholder="description..."
+                    class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+        </div>
+
+        <div class="pt-4 flex gap-2">
+          <button (click)="saveProduct()" [disabled]="isSubmitting || !productObj.title"
+                  class="flex-1 bg-blue-600 text-white py-2.5 rounded-lg hover:bg-blue-700 transition disabled:bg-gray-400 font-bold shadow-md">
+            {{ productObj.id ? 'Save Changes' : 'Add Product' }}
+          </button>
+
+          @if (productObj.id) {
+            <button (click)="resetForm()"
+                    class="bg-gray-200 text-gray-700 px-4 rounded-lg hover:bg-gray-300 transition">
+              إلغاء
+            </button>
+          }
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="lg:col-span-2">
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+      <div class="p-4 bg-gray-50 border-b flex justify-between items-center">
+        <h3 class="font-bold text-gray-700">Categories 📋</h3>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm text-left text-gray-500">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+          <tr>
+            <th class="px-4 py-3">ID</th>
+            <th class="px-4 py-3">Image</th>
+            <th class="px-4 py-3">Title</th>
+            <th class="px-4 py-3">Price</th>
+            <th class="px-4 py-3 text-center">Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+            @for (item of products(); track item.id) {
+              <tr class="bg-white border-b hover:bg-gray-50 transition">
+                <td class="px-4 py-3 font-medium text-gray-900">#{{ item.id }}</td>
+                <td class="px-4 py-3">
+                  <img [src]="item.image" class="w-8 h-8 object-contain">
+                </td>
+                <td class="px-4 py-3 truncate max-w-[200px]" [title]="item.title">{{ item.title }}</td>
+                <td class="px-4 py-3">${{ item.price }}</td>
+                <td class="px-4 py-3 flex justify-center gap-2">
+                  <button (click)="onEdit(item)"
+                          class="text-white bg-yellow-500 hover:bg-yellow-600 p-2 rounded shadow-sm transition">
+                    ✏️
+                  </button>
+                  <button (click)="onDelete(item.id!)"
+                          class="text-white bg-red-500 hover:bg-red-600 p-2 rounded shadow-sm transition">
+                    🗑️
+                  </button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

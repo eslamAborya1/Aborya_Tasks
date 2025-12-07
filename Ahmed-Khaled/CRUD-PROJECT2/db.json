@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Ahmed Khaled",
+      "email": "Ahmed@gmail.com",
+      "password": "Ahmed123546?",
+      "phone": "01024005148"
+    },
+    {
+      "id": "2",
+      "name": "test",
+      "email": "test@gmail.com",
+      "password": "123456test@",
+      "phone": "01024005148"
+    }
+  ]
+}

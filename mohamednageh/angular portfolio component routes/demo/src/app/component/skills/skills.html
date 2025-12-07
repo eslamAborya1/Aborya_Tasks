@@ -1,0 +1,38 @@
+<section class="section" id="skills">
+  <div class="section-content">
+    <h2>Skills & Expertise</h2>
+
+    <!-- Backend Skills -->
+    <h3 class="skill-category">Backend</h3>
+    <div class="skills-logos">
+      @for (skill of backendSkills; track skill.name){
+        <div class="skill-item">
+          <img [src]="skill.icon" [alt]="skill.name" />
+          <span>{{ skill.name }}</span>
+        </div>
+      }
+    </div>
+
+    <!-- Frontend Skills -->
+    <h3 class="skill-category">Frontend</h3>
+    <div class="skills-logos">
+      @for (skill of frontendSkills; track skill.name){
+        <div class="skill-item">
+          <img [src]="skill.icon" [alt]="skill.name" />
+          <span>{{ skill.name }}</span>
+        </div>
+      }
+    </div>
+
+    <!-- Tools & DevOps -->
+    <h3 class="skill-category">Tools & DevOps</h3>
+    <div class="skills-logos">
+      @for (skill of toolsSkills; track skill.name){
+        <div class="skill-item">
+          <img [src]="skill.icon" [alt]="skill.name" />
+          <span>{{ skill.name }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>

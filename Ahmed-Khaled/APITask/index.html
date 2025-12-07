@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Services Example</title>
+</head>
+
+<link rel="stylesheet" href="/css/style.css">
+
+<body>
+    <div class="container">
+        <header>
+            <h1>📡 REST API Testing Tool</h1>
+            <p class="subtitle">Test GET (All/By ID), POST, PUT, DELETE operations</p>
+        </header>
+
+        <div class="dashboard">
+            <!-- Product Service Card -->
+            <div class="service-card">
+                <h2 class="service-title">🛒 Product Service</h2>
+                <div class="buttons-grid">
+                    <button class="btn btn-get-all" onclick="getAllProducts()">
+                        📋 GET All Products
+                    </button>
+                    <button class="btn btn-get" onclick="showProductForm('get')">
+                        🔍 GET Product by ID
+                    </button>
+                    <button class="btn btn-post" onclick="showProductForm('post')">
+                        ➕ POST Product
+                    </button>
+                    <button class="btn btn-put" onclick="showProductForm('put')">
+                        ✏️ PUT Product
+                    </button>
+                    <button class="btn btn-delete" onclick="showProductForm('delete')">
+                        🗑️ DELETE Product
+                    </button>
+                </div>
+                <div class="api-info">
+                    Base URL: https://fakestoreapi.com
+                </div>
+            </div>
+        </div>
+
+        <!-- User Form Section -->
+        <div id="userForm" class="form-section">
+            <div class="form-header">
+                <h2 id="userFormTitle">User Form</h2>
+                <button class="close-btn" onclick="hideForm('userForm')">×</button>
+            </div>
+            <form id="userFormContent" onsubmit="handleUserSubmit(event)">
+                
+            </form>
+        </div>
+
+        <!-- Product Form Section -->
+        <div id="productForm" class="form-section">
+            <div class="form-header">
+                <h2 id="productFormTitle">Product Form</h2>
+                <button class="close-btn" onclick="hideForm('productForm')">×</button>
+            </div>
+            <form id="productFormContent" onsubmit="handleProductSubmit(event)">
+                <!-- Dynamic content will be inserted here -->
+            </form>
+        </div>
+
+        <!-- Output Section -->
+        <div class="output-section">
+            <div class="output-header">
+                <h2>📊 API Response</h2>
+                <button class="clear-btn" onclick="clearOutput()">Clear Output</button>
+            </div>
+            <div id="output" class="output-content">
+                Click any button to start testing...
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

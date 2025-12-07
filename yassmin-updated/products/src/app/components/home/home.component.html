@@ -1,0 +1,19 @@
+    <main class="page">
+
+      @if (loading) {
+        <div class="loading">Loading...</div>
+      }
+
+      @if (!loading && error !== '') {
+        <div class="error">{{ error }}</div>
+      }
+
+      @if (!loading && error === '') {
+        <div class="grid">
+          @for (p of products; track p.id) {
+            <app-product-card [product]="p"></app-product-card>
+          }
+        </div>
+      }
+
+    </main>

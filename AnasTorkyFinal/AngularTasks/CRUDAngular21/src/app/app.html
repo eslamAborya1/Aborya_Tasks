@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>CRUD Test – JSONPlaceholder</h2>
+
+  <input type="number" id="postId" placeholder="Enter Post ID (For Read / Update / Delete)" [(ngModel)]="postId">
+
+  <input type="text" id="title" placeholder="Enter Title" [(ngModel)]="title">
+
+  <textarea id="body" placeholder="Enter Body" [(ngModel)]="body"></textarea>
+
+  <br>
+
+  <button (click)="createPost()">Create</button>
+  <button (click)="readPost()">Read</button>
+  <button (click)="updatePost()">Update</button>
+  <button (click)="deletePost()">Delete</button>
+
+  <div id="output">{{ result | json }}</div>
+</div>

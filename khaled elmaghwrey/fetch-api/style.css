@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+  direction: rtl;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.app-header {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+  animation: fadeIn 0.6s ease-in;
+}
+
+.main-title {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+  font-size: 1.1em;
+  opacity: 0.9;
+}
+
+.action-panel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.btn-info {
+  background: linear-gradient(135deg, #36d1dc 0%, #5b86e5 100%);
+}
+.btn-success {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+.btn-warning {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+.btn-danger {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.content-area {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  min-height: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.5s ease-out;
+}
+
+.content-card {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.content-card:hover {
+  transform: scale(1.02);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card-title {
+  color: #2d3748;
+  font-size: 1.3em;
+  flex: 1;
+}
+
+.user-badge {
+  background: #667eea;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: 600;
+}
+
+.card-body {
+  color: #4a5568;
+  line-height: 1.6;
+  font-size: 1em;
+}
+
+.loader,
+.error-message,
+.success-message,
+.welcome-msg {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.loader {
+  color: #667eea;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.error-message {
+  color: #e53e3e;
+  background: #fed7d7;
+  border-radius: 10px;
+}
+
+.success-message {
+  color: #38a169;
+  background: #c6f6d5;
+  border-radius: 10px;
+}
+
+.welcome-msg {
+  color: #718096;
+  font-size: 1.1em;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 1.8em;
+  }
+
+  .btn {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  .content-area {
+    padding: 20px;
+  }
+}

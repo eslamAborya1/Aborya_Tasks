@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CRUD App (XMLHttpRequest)</title>
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <h1>CRUD App using XMLHttpRequest + JSONPlaceholder</h1>
+
+  <!-- LOAD POSTS -->
+  <button onclick="loadPosts()">Load Posts</button>
+  <div id="posts"></div>
+
+  <hr>
+
+  <!-- CREATE POST -->
+  <h2>Add New Post</h2>
+  <input type="text" id="newTitle" placeholder="Title">
+  <textarea id="newBody" placeholder="Body"></textarea>
+  <button onclick="createPost()">Create Post</button>
+
+  <hr>
+
+  <!-- UPDATE POST -->
+  <h2>Update Post</h2>
+  <input type="number" id="updateId" placeholder="Post ID">
+  <input type="text" id="updateTitle" placeholder="New Title">
+  <textarea id="updateBody" placeholder="New Body"></textarea>
+  <button onclick="updatePost()">Update Post</button>
+
+  <hr>
+
+  <!-- DELETE POST -->
+  <h2>Delete Post</h2>
+  <input type="number" id="deleteId" placeholder="Post ID">
+  <button onclick="deletePost()">Delete Post</button>
+
+  <script src="./script.js">
+   
+  </script>
+</body>
+</html>

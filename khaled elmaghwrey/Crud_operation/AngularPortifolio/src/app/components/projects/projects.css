@@ -1,0 +1,201 @@
+/* Sections General Styling */
+section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #667eea;
+}
+
+/* ----------- Projects Section ----------- */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.project-content h3 {
+    color: #667eea;
+    margin-bottom: 0.5rem;
+}
+
+/* Add Project Button */
+.add-project-btn {
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.add-project-btn:hover {
+  opacity: 0.8;
+}
+
+/* Modal Background */
+.form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* Modal Form */
+.form-container {
+  background: white;
+  padding: 25px;
+  width: 420px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: fadeIn 0.3s ease;
+}
+
+.form-container h3 {
+  margin-bottom: 15px;
+  text-align: center;
+  color: #5a5abf;
+}
+
+/* Inputs */
+.form-container input,
+.form-container textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+/* Buttons */
+.btn-save {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-save:hover {
+  opacity: 0.9;
+}
+
+.btn-cancel {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: 0.2s;
+}
+
+.btn-cancel:hover {
+  opacity: 0.9;
+}
+
+/* Buttons under each project card */
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.action-btn {
+  padding: 6px 12px;
+  font-size: 13px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  color: white;
+}
+
+/* Edit Button */
+.btn-edit {
+  background: #3b82f6;  /* blue */
+}
+
+.btn-edit:hover {
+  background: #2563eb;
+}
+
+/* Delete Button */
+.btn-delete {
+  background: #ef4444; /* red */
+}
+
+.btn-delete:hover {
+  background: #dc2626;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+/* ----------- Animations ----------- */
+
+@keyframes fillBar {
+    from { width: 0; }
+}
+
+/* ----------- Responsive Mobile ----------- */
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+}

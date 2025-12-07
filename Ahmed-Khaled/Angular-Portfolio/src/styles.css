@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "tailwindcss";
+/* ===== Vanilla Latte Theme Colors ===== */
+:root {
+  --vanilla: #F8F5F0;
+  --latte: #D4B499;
+  --coffee: #A68A6D;
+  --caramel: #EADBC8;
+  --espresso: #3B2F2F;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: var(--vanilla);
+  color: var(--espresso);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  padding-top: 80px; /* Account for fixed navigation */
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  body {
+    padding-top: 60px;
+  }
+}

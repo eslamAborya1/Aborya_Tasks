@@ -1,0 +1,102 @@
+/* الصفحة بالكامل */
+.container {
+  width: 700px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* العنوان */
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* قسم إضافة المستخدم */
+.add-user {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.add-user input {
+  flex: 1;
+}
+
+/* تنسيق كل الInputs */
+input {
+  padding: 8px 12px;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+input:focus {
+  border-color: #1976d2;
+  outline: none;
+  box-shadow: 0 0 3px rgba(25,118,210,0.4);
+}
+
+/* الButtons */
+button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+/* زر الإضافة */
+button:not(.update):not(.delete) {
+  background: #1976d2;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* تحديث */
+button.update {
+  background: #4caf50;
+}
+
+/* حذف */
+button.delete {
+  background: #f44336;
+}
+
+/* تنسيق الجدول */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fafafa;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+table th {
+  background: #1976d2;
+  color: white;
+  padding: 12px;
+  font-weight: 500;
+  text-align: left;
+}
+
+table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/* صف عند المرور */
+table tbody tr:hover {
+  background: #f5f5f5;
+}

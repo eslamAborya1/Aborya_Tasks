@@ -1,0 +1,15 @@
+.contact-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.contact-links a img {
+  width: 48px;
+  height: 48px;
+  transition: transform 0.3s ease;
+}
+.contact-links a img:hover {
+  transform: scale(1.2);
+}

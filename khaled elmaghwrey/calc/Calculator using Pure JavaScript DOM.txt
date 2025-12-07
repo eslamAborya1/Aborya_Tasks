@@ -1,0 +1,373 @@
+// Create calculator using only JavaScript DOM manipulation
+// No HTML or CSS files needed
+
+// Create and style elements programmatically
+const body = document.body;
+body.style.cssText = `
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+// Create main container
+const container = document.createElement('div');
+container.style.cssText = `
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+`;
+
+// Create title
+const title = document.createElement('h1');
+title.textContent = 'Calculator';
+title.style.cssText = `
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+`;
+
+// Create display
+const display = document.createElement('div');
+display.textContent = '0';
+display.style.cssText = `
+    background: #f5f5f5;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-align: right;
+    min-height: 70px;
+    color: #333;
+`;
+
+// Create buttons container
+const buttonsContainer = document.createElement('div');
+buttonsContainer.style.cssText = `
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+`;
+
+// Button configurations
+const buttons = [
+    { text: 'C', span: 2, color: '#ff6b6b', action: 'clear' },
+    { text: '/', span: 1, color: '#667eea', action: 'operator' },
+    { text: '×', span: 1, color: '#667eea', action: 'operator' },
+    { text: '7', span: 1, color: '#f5f5f5', action: 'number' },
+    { text: '8', span: 1, color: '#f5f5f5', action: 'number' },
+    { text: '9', span: 1, color: '#f5f5f5', action: 'number' },
+    { text: '-', span: 1, color: '#667eea', action: 'operator' },
+    { text: '4', span: 1, color: '#f5f5f5', action: 'number' },
+    { text: '5', span: 1, color: '#f5f5f5', action: 'number' },
+    { text: '6', span: 1, color: '#f5f5f5', action: 'number' },
+    { text: '+', span: 1, color: '#667eea', action: 'operator' },
+    { text: '1', span: 1, color: '#f5f5f5', action: 'number' },
+    { text: '2', span: 1, color: '#f5f5f5', action: 'number' },
+    { text: '3', span: 1, color: '#f5f5f5', action: 'number' },
+    { text: '.', span: 1, color: '#f5f5f5', action: 'number' },
+    { text: '0', span: 1, color: '#f5f5f5', action: 'number' },
+    { text: '=', span: 2, color: '#764ba2', action: 'equals' }
+];
+
+// Calculator state
+let currentInput = '0';
+let previousInput = '';
+let operation = null;
+let history = [];
+
+// Create buttons
+buttons.forEach(btn => {
+    const button = document.createElement('button');
+    button.textContent = btn.text;
+    button.style.cssText = `
+        padding: 20px;
+        font-size: 1.5rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+        background: ${btn.color};
+        color: ${btn.color === '#f5f5f5' ? '#333' : 'white'};
+        grid-column: span ${btn.span};
+        transition: transform 0.2s;
+    `;
+    
+    button.onmouseover = () => {
+        button.style.transform = 'translateY(-2px)';
+        button.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.2)';
+    };
+    
+    button.onmouseout = () => {
+        button.style.transform = 'translateY(0)';
+        button.style.boxShadow = 'none';
+    };
+    
+    button.onclick = () => handleButtonClick(btn.text, btn.action);
+    buttonsContainer.appendChild(button);
+});
+
+// Create action buttons container
+const actionsContainer = document.createElement('div');
+actionsContainer.style.cssText = `
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+`;
+
+// Create GET button
+const getButton = document.createElement('button');
+getButton.textContent = 'Get History';
+getButton.style.cssText = `
+    flex: 1;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    background: #4ecdc4;
+    color: white;
+`;
+getButton.onclick = fetchHistory;
+
+// Create DELETE button
+const deleteButton = document.createElement('button');
+deleteButton.textContent = 'Clear History';
+deleteButton.style.cssText = `
+    flex: 1;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    background: #ffa07a;
+    color: white;
+`;
+deleteButton.onclick = deleteHistory;
+
+actionsContainer.appendChild(getButton);
+actionsContainer.appendChild(deleteButton);
+
+// Create status message
+const status = document.createElement('div');
+status.style.cssText = `
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    text-align: center;
+    display: none;
+`;
+
+// Create history container
+const historyContainer = document.createElement('div');
+historyContainer.style.cssText = `
+    margin-top: 20px;
+    padding: 15px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+`;
+
+const historyTitle = document.createElement('h3');
+historyTitle.textContent = 'Calculation History';
+historyTitle.style.cssText = `
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 1rem;
+`;
+
+const historyList = document.createElement('div');
+const noHistory = document.createElement('div');
+noHistory.textContent = 'No calculations yet';
+noHistory.style.cssText = `
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 10px;
+`;
+historyList.appendChild(noHistory);
+
+historyContainer.appendChild(historyTitle);
+historyContainer.appendChild(historyList);
+
+// Append all elements
+container.appendChild(title);
+container.appendChild(display);
+container.appendChild(buttonsContainer);
+container.appendChild(actionsContainer);
+container.appendChild(status);
+container.appendChild(historyContainer);
+body.appendChild(container);
+
+// Calculator functions
+function updateDisplay() {
+    display.textContent = currentInput;
+}
+
+function handleButtonClick(value, action) {
+    if (action === 'number') {
+        if (value === '.' && currentInput.includes('.')) return;
+        if (currentInput === '0' && value !== '.') {
+            currentInput = value;
+        } else {
+            currentInput += value;
+        }
+    } else if (action === 'operator') {
+        if (operation !== null) {
+            calculate();
+        }
+        previousInput = currentInput;
+        currentInput = '0';
+        operation = value === '×' ? '*' : value;
+    } else if (action === 'equals') {
+        calculate();
+    } else if (action === 'clear') {
+        currentInput = '0';
+        previousInput = '';
+        operation = null;
+    }
+    updateDisplay();
+}
+
+function calculate() {
+    if (operation === null || previousInput === '') return;
+
+    const prev = parseFloat(previousInput);
+    const current = parseFloat(currentInput);
+    let result;
+
+    switch(operation) {
+        case '+':
+            result = prev + current;
+            break;
+        case '-':
+            result = prev - current;
+            break;
+        case '*':
+            result = prev * current;
+            break;
+        case '/':
+            result = current !== 0 ? prev / current : 'Error';
+            break;
+        default:
+            return;
+    }
+
+    const calculation = {
+        expression: `${previousInput} ${operation} ${currentInput}`,
+        result: result,
+        timestamp: new Date().toLocaleString()
+    };
+
+    history.unshift(calculation);
+    saveToServer(calculation);
+
+    currentInput = result.toString();
+    operation = null;
+    previousInput = '';
+    displayHistory();
+}
+
+function displayHistory() {
+    historyList.innerHTML = '';
+    
+    if (history.length === 0) {
+        const noHistory = document.createElement('div');
+        noHistory.textContent = 'No calculations yet';
+        noHistory.style.cssText = `
+            text-align: center;
+            color: #999;
+            font-style: italic;
+            padding: 10px;
+        `;
+        historyList.appendChild(noHistory);
+        return;
+    }
+
+    history.forEach(item => {
+        const historyItem = document.createElement('div');
+        historyItem.textContent = `${item.expression} = ${item.result}`;
+        historyItem.style.cssText = `
+            padding: 8px;
+            background: white;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: #666;
+        `;
+        historyList.appendChild(historyItem);
+    });
+}
+
+// HTTP request simulation functions
+async function saveToServer(calculation) {
+    try {
+        // Simulated POST request
+        console.log('POST request - Saving calculation:', calculation);
+        showStatus('Calculation saved! (POST)', 'success');
+    } catch (error) {
+        showStatus('Failed to save calculation', 'error');
+    }
+}
+
+async function fetchHistory() {
+    try {
+        // Simulated GET request
+        console.log('GET request - Fetching history');
+        showStatus('History loaded! (GET)', 'success');
+        displayHistory();
+    } catch (error) {
+        showStatus('Failed to load history', 'error');
+    }
+}
+
+async function deleteHistory() {
+    try {
+        // Simulated DELETE request
+        console.log('DELETE request - Clearing history');
+        history = [];
+        displayHistory();
+        showStatus('History cleared! (DELETE)', 'success');
+    } catch (error) {
+        showStatus('Failed to clear history', 'error');
+    }
+}
+
+function showStatus(message, type) {
+    status.textContent = message;
+    status.style.display = 'block';
+    status.style.background = type === 'success' ? '#d4edda' : '#f8d7da';
+    status.style.color = type === 'success' ? '#155724' : '#721c24';
+    
+    setTimeout(() => {
+        status.style.display = 'none';
+    }, 3000);
+}
+
+// Keyboard support
+document.addEventListener('keydown', (e) => {
+    if (e.key >= '0' && e.key <= '9' || e.key === '.') {
+        handleButtonClick(e.key, 'number');
+    } else if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') {
+        handleButtonClick(e.key, 'operator');
+    } else if (e.key === 'Enter' || e.key === '=') {
+        calculate();
+    } else if (e.key === 'Escape' || e.key === 'c' || e.key === 'C') {
+        handleButtonClick('C', 'clear');
+    }
+    updateDisplay();
+});

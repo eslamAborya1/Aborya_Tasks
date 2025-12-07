@@ -1,0 +1,25 @@
+/* Footer */
+.footer-bg {
+background-color: #1A3D64;
+height: 200px;
+}
+
+
+/* Carousel fade effect */
+.fade-img {
+opacity: 0;
+transition: opacity 1s ease;
+}
+.active-img {
+opacity: 1;
+}
+
+
+/* Headings */
+h1 {
+color: rgba(173, 35, 35, 0.73);
+}
+
+.angular-img{
+  width : 35px;
+}

@@ -1,0 +1,36 @@
+<div class="container">
+
+  <h2>Users CRUD</h2>
+
+  <div class="add-user">
+    <input [(ngModel)]="newUser.name" placeholder="Name">
+    <input [(ngModel)]="newUser.email" placeholder="Email">
+    <button (click)="createUser()">Add User</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+
+        <td><input [(ngModel)]="user.name"></td>
+        <td><input [(ngModel)]="user.email"></td>
+
+        <td>
+          <button class="update" (click)="updateUser(user)">Update</button>
+          <button class="delete" (click)="deleteUser(user.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style_css.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <h1>Hi, I'm Khaled Elmaghwrey</h1>
+      <p>Full Stack Developer | AI Engineer | Creative Problem Solver</p>
+      <a href="#contact" class="btn">Get In Touch</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <div class="about-image">
+          <img src="khaled.jpg" alt="Profile" />
+        </div>
+        <div class="about-text">
+          <p>
+            Hello! I'm a Full Stack Developer with a love for creating beautiful
+            and functional websites.
+          </p>
+          <p>I enjoy working with modern technologies and frameworks.</p>
+          <p>Let's work together to bring your ideas to life!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2>My Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Frontend Development</h3>
+          <p>HTML, CSS, JavaScript</p>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 90%"></div>
+          </div>
+          <p>React, Vue, Angular</p>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 85%"></div>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Backend Development</h3>
+          <p>Node.js, Express</p>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 80%"></div>
+          </div>
+          <p>Python, Django</p>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 75%"></div>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Design & Tools</h3>
+          <p>UI/UX Design</p>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 85%"></div>
+          </div>
+          <p>Git, Docker, AWS</p>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 80%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2>My Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">🚀</div>
+          <div class="project-content">
+            <h3>E-Commerce Platform</h3>
+            <p>
+              A full-featured shopping platform built with React and Node.js.
+            </p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">📱</div>
+          <div class="project-content">
+            <h3>Social Media App</h3>
+            <p>
+              A responsive social networking application with real-time
+              messaging.
+            </p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">💼</div>
+          <div class="project-content">
+            <h3>Portfolio CMS</h3>
+            <p>CMS for creative professionals with customizable themes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Get In Touch</h2>
+      <form class="contact-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 John Doe. All rights reserved.</p>
+      <div class="social-links">
+        <a href="#">GitHub</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

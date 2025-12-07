@@ -1,0 +1,279 @@
+/* ===== Vanilla Latte Theme Colors ===== */
+:root {
+  --vanilla: #F8F5F0;
+  --latte: #D4B499;
+  --coffee: #A68A6D;
+  --caramel: #EADBC8;
+  --espresso: #3B2F2F;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: var(--vanilla);
+  color: var(--espresso);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  padding-top: 80px; /* Account for fixed navigation */
+}
+
+header {
+  background: var(--latte);
+  color: var(--espresso);
+  padding: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  animation: fadeDown 1s ease;
+}
+
+header p {
+  font-size: 1.2rem;
+  animation: fadeUp 1.5s ease;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+  background: var(--coffee);
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: max-height 0.4s ease;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+  position: relative;
+}
+
+nav a.active {
+  color: var(--caramel);
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--caramel);
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ===== HAMBURGER MENU ===== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+/* ===== SECTION STYLING ===== */
+section {
+  padding: 3rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== PROFILE PHOTO SECTION ===== */
+.profile-photo {
+  text-align: center;
+  padding: 2rem;
+}
+
+.photo-container {
+  display: inline-block;
+  position: relative;
+}
+
+.photo-container img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: contain;
+  border: 6px solid var(--coffee);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  animation: fadeIn 2s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--coffee);
+}
+
+.photo-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+}
+
+.about {
+  background: var(--caramel);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+/* ===== ALL SECTIONS STYLING ===== */
+section:not(.profile-photo):not(.about) {
+  background: var(--caramel);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.card {
+  background: var(--caramel);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 14px rgba(0,0,0,0.2);
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: var(--coffee);
+}
+
+h3 {
+  margin: 1.5rem 0 1rem 0;
+  color: var(--coffee);
+  font-size: 1.3rem;
+}
+
+h3:first-child {
+  margin-top: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+  text-align: left;
+}
+
+li:before {
+  content: "•";
+  color: var(--coffee);
+  font-weight: bold;
+  font-size: 1.2rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--coffee);
+  color: white;
+  margin-top: 2rem;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: var(--coffee);
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+    animation: fadeDown 0.5s ease;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .photo-container img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .about, section:not(.profile-photo):not(.about) {
+    margin: 1rem;
+    padding: 2rem;
+  }
+}

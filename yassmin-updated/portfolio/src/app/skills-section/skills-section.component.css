@@ -1,0 +1,30 @@
+.skills-section{
+    background-color: #232020;
+}
+
+
+
+.skill-label {
+  background-color: #444;       
+  color: white;
+  padding: 6px 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  min-width: 100px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.custom-progress {
+  background-color: #333;         
+  height: 25px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.custom-progress .progress-bar {
+  background-color: white;        
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 25px;
+}

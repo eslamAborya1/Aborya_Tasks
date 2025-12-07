@@ -1,0 +1,25 @@
+<article class="card">
+<div class="media">
+<img [src]="product.image" [alt]="product.title" loading="lazy" />
+</div>
+
+
+<div class="card-body">
+
+<h3 class="title">{{ product.title }}</h3> 
+ <p class="category">{{ product.category | titlecase }}</p>
+<p class="desc">{{ product.description | slice:0:120 }}{{ product.description.length > 120 ? '...' : '' }}</p>
+
+
+<div class="bottom">
+ <div class="price">$ {{ product.price | number:'1.2-2' }}</div>
+
+
+<div class="actions">
+ Buttons 
+<button class="btn edit" disabled title="Edit not implemented">✎ Edit</button>
+<button class="btn del" disabled title="Delete not implemented">🗑 Delete</button>
+</div>
+</div>
+</div>
+</article>

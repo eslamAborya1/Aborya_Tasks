@@ -1,0 +1,32 @@
+<section class="skills-section">
+      <h1>My skills</h1>
+      
+      <div class="skills-container">
+        <div class="skills-column design-column text-right direction-r">
+          <h2>Design</h2>
+         
+          @for (skill of designSkills; track $index) {
+ <div class="skill-item text-right">
+            <div class="skill-label">{{ skill.name }}</div>
+            <div class="skill-bar">
+              <div class="skill-progress" [style.width.%]="skill.percentage"></div>
+            </div>
+          </div>
+          }
+         
+
+        </div>
+
+        <div class="skills-column developing-column text-left">
+          <h2>Developing</h2>
+           @for (skill of developingSkills; track $index) {
+          <div class="skill-item text-left" >
+            <div class="skill-label">{{ skill.name }}</div>
+            <div class="skill-bar">
+              <div class="skill-progress" [style.width.%]="skill.percentage"></div>
+            </div>
+          </div>
+        }
+        </div>
+      </div>
+    </section>
